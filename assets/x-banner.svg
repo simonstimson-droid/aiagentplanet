@@ -1,85 +1,66 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0A0A0F"/>
-      <stop offset="50%" style="stop-color:#1a1040"/>
-      <stop offset="100%" style="stop-color:#0A0A0F"/>
+      <stop offset="0%" stop-color="#0A0A0F"/>
+      <stop offset="50%" stop-color="#1a1040"/>
+      <stop offset="100%" stop-color="#0A0A0F"/>
     </linearGradient>
-    <radialGradient id="planetGlow" cx="85%" cy="50%" r="40%">
-      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:0.35"/>
-      <stop offset="50%" style="stop-color:#7C3AED;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#0A0A0F;stop-opacity:0"/>
+    <radialGradient id="glow" cx="85%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#7C3AED" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0A0A0F" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7C3AED"/>
-      <stop offset="100%" style="stop-color:#6366F1"/>
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#6366F1"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="15" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
 
   <!-- Background -->
   <rect width="1500" height="500" fill="url(#bg)"/>
+  <rect width="1500" height="500" fill="url(#glow)"/>
 
-  <!-- Planet glow -->
-  <rect width="1500" height="500" fill="url(#planetGlow)"/>
+  <!-- Planet circles right -->
+  <circle cx="1220" cy="250" r="260" fill="none" stroke="#A78BFA" stroke-width="1.5" opacity="0.12"/>
+  <circle cx="1220" cy="250" r="190" fill="none" stroke="#A78BFA" stroke-width="1" opacity="0.1"/>
+  <circle cx="1220" cy="250" r="330" fill="none" stroke="#7C3AED" stroke-width="1" opacity="0.06"/>
 
-  <!-- Large planet circle (right side) -->
-  <circle cx="1200" cy="250" r="280" fill="none" stroke="rgba(167,139,250,0.12)" stroke-width="2"/>
-  <circle cx="1200" cy="250" r="200" fill="none" stroke="rgba(167,139,250,0.1)" stroke-width="1.5"/>
-  <circle cx="1200" cy="250" r="350" fill="none" stroke="rgba(124,58,237,0.06)" stroke-width="1"/>
+  <!-- Planet body faint -->
+  <circle cx="1220" cy="250" r="140" fill="url(#logoGrad)" opacity="0.12"/>
 
-  <!-- Planet body -->
-  <circle cx="1200" cy="250" r="160" fill="url(#logoGrad)" opacity="0.15"/>
-  <circle cx="1200" cy="250" r="160" fill="none" stroke="rgba(167,139,250,0.2)" stroke-width="1.5"/>
+  <!-- Orbit ring -->
+  <ellipse cx="1220" cy="250" rx="200" ry="48" fill="none" stroke="#A78BFA" stroke-width="1.5" opacity="0.15" transform="rotate(-10 1220 250)"/>
 
-  <!-- Orbiting ring -->
-  <ellipse cx="1200" cy="250" rx="220" ry="50" fill="none" stroke="rgba(167,139,250,0.15)" stroke-width="2" transform="rotate(-12 1200 250)"/>
+  <!-- Stars -->
+  <circle cx="850" cy="90" r="2" fill="white" opacity="0.25"/>
+  <circle cx="1050" cy="410" r="1.5" fill="white" opacity="0.2"/>
+  <circle cx="750" cy="380" r="2" fill="white" opacity="0.18"/>
+  <circle cx="1350" cy="120" r="1.5" fill="white" opacity="0.25"/>
+  <circle cx="900" cy="180" r="1" fill="white" opacity="0.3"/>
 
-  <!-- Small orbiting dot -->
-  <circle cx="1380" cy="170" r="8" fill="#A78BFA" opacity="0.5" filter="url(#glow)"/>
-  <circle cx="1050" cy="380" r="5" fill="#7C3AED" opacity="0.4"/>
+  <!-- Orbiting dot -->
+  <circle cx="1360" cy="155" r="6" fill="#A78BFA" opacity="0.5"/>
+  <circle cx="1080" cy="390" r="4" fill="#7C3AED" opacity="0.35"/>
 
-  <!-- Stars / particles -->
-  <circle cx="900" cy="80" r="2" fill="white" opacity="0.3"/>
-  <circle cx="1100" cy="420" r="1.5" fill="white" opacity="0.25"/>
-  <circle cx="800" cy="400" r="2" fill="white" opacity="0.2"/>
-  <circle cx="1300" cy="100" r="1.5" fill="white" opacity="0.3"/>
-  <circle cx="1400" cy="350" r="2" fill="white" opacity="0.2"/>
-  <circle cx="950" cy="200" r="1" fill="white" opacity="0.35"/>
-  <circle cx="1050" cy="120" r="1.5" fill="white" opacity="0.25"/>
-
-  <!-- Logo mark (left side) -->
-  <rect x="80" y="125" width="250" height="250" rx="55" ry="55" fill="url(#logoGrad)" filter="url(#softGlow)"/>
-  <rect x="95" y="140" width="220" height="220" rx="48" ry="48" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+  <!-- Logo mark -->
+  <rect x="70" y="100" width="240" height="240" rx="52" ry="52" fill="url(#logoGrad)"/>
+  <rect x="82" y="112" width="216" height="216" rx="46" ry="46" fill="none" stroke="white" stroke-width="1.5" opacity="0.08"/>
 
   <!-- Robot face in logo -->
-  <rect x="130" y="175" width="180" height="140" rx="25" ry="25" fill="none" stroke="white" stroke-width="5" opacity="0.9"/>
-  <circle cx="180" cy="230" r="18" fill="white" opacity="0.95"/>
-  <circle cx="180" cy="230" r="8" fill="#7C3AED"/>
-  <circle cx="220" cy="230" r="18" fill="white" opacity="0.95"/>
-  <circle cx="220" cy="230" r="8" fill="#7C3AED"/>
-  <line x1="200" y1="175" x2="200" y2="140" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
-  <circle cx="200" cy="132" r="8" fill="#A78BFA" filter="url(#glow)"/>
-  <rect x="150" y="270" width="100" height="16" rx="8" ry="8" fill="white" opacity="0.6"/>
+  <rect x="108" y="142" width="168" height="128" rx="24" ry="24" fill="none" stroke="white" stroke-width="4.5" opacity="0.9"/>
+  <circle cx="156" cy="192" r="17" fill="white" opacity="0.95"/>
+  <circle cx="156" cy="192" r="8" fill="#6366F1"/>
+  <circle cx="220" cy="192" r="17" fill="white" opacity="0.95"/>
+  <circle cx="220" cy="192" r="8" fill="#6366F1"/>
+  <line x1="188" y1="142" x2="188" y2="108" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="188" cy="100" r="7" fill="#A78BFA" opacity="0.9"/>
+  <rect x="140" y="228" width="96" height="14" rx="7" fill="white" opacity="0.6"/>
 
-  <!-- Brand name (right of logo) -->
-  <text x="380" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="52" fill="white" opacity="0.95">AI Agent Planet</text>
-  <text x="380" y="270" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="24" fill="#A78BFA" opacity="0.8">Daily AI news for builders</text>
-  <text x="380" y="310" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="400" font-size="18" fill="#9CA3AF" opacity="0.6">t.me/aiagentplanet</text>
+  <!-- Text block -->
+  <text x="360" y="195" font-family="BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, sans-serif" font-weight="800" font-size="48" fill="white" opacity="0.95">AI Agent Planet</text>
+  <text x="360" y="240" font-family="BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, sans-serif" font-weight="500" font-size="22" fill="#A78BFA" opacity="0.8">Daily AI news for builders</text>
+  <text x="360" y="278" font-family="BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, sans-serif" font-weight="400" font-size="16" fill="#9CA3AF" opacity="0.55">t.me/aiagentplanet</text>
 
-  <!-- Thin divider line -->
-  <line x1="380" y1="290" x2="700" y2="290" stroke="rgba(167,139,250,0.15)" stroke-width="1"/>
+  <!-- Divider -->
+  <line x1="360" y1="258" x2="680" y2="258" stroke="#A78BFA" stroke-width="1" opacity="0.12"/>
 </svg>

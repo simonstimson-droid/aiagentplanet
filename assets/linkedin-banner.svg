@@ -1,69 +1,63 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0A0A0F"/>
-      <stop offset="50%" style="stop-color:#1a1040"/>
-      <stop offset="100%" style="stop-color:#0A0A0F"/>
+      <stop offset="0%" stop-color="#0A0A0F"/>
+      <stop offset="50%" stop-color="#1a1040"/>
+      <stop offset="100%" stop-color="#0A0A0F"/>
     </linearGradient>
-    <radialGradient id="planetGlow" cx="80%" cy="50%" r="45%">
-      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:0.3"/>
-      <stop offset="60%" style="stop-color:#7C3AED;stop-opacity:0.1"/>
-      <stop offset="100%" style="stop-color:#0A0A0F;stop-opacity:0"/>
+    <radialGradient id="glow" cx="82%" cy="50%" r="42%">
+      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#7C3AED" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0A0A0F" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7C3AED"/>
-      <stop offset="100%" style="stop-color:#6366F1"/>
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#6366F1"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
 
   <!-- Background -->
   <rect width="1584" height="396" fill="url(#bg)"/>
-  <rect width="1584" height="396" fill="url(#planetGlow)"/>
+  <rect width="1584" height="396" fill="url(#glow)"/>
 
-  <!-- Planet circles (right) -->
-  <circle cx="1300" cy="198" r="200" fill="none" stroke="rgba(167,139,250,0.1)" stroke-width="1.5"/>
-  <circle cx="1300" cy="198" r="140" fill="none" stroke="rgba(167,139,250,0.08)" stroke-width="1"/>
-  <circle cx="1300" cy="198" r="260" fill="none" stroke="rgba(124,58,237,0.05)" stroke-width="1"/>
-  <ellipse cx="1300" cy="198" rx="180" ry="45" fill="none" stroke="rgba(167,139,250,0.12)" stroke-width="1.5" transform="rotate(-10 1300 198)"/>
+  <!-- Planet circles right -->
+  <circle cx="1320" cy="198" r="200" fill="none" stroke="#A78BFA" stroke-width="1.5" opacity="0.1"/>
+  <circle cx="1320" cy="198" r="140" fill="none" stroke="#A78BFA" stroke-width="1" opacity="0.08"/>
+  <circle cx="1320" cy="198" r="270" fill="none" stroke="#7C3AED" stroke-width="1" opacity="0.05"/>
+
+  <!-- Orbit ring -->
+  <ellipse cx="1320" cy="198" rx="175" ry="42" fill="none" stroke="#A78BFA" stroke-width="1.5" opacity="0.12" transform="rotate(-8 1320 198)"/>
 
   <!-- Planet body -->
-  <circle cx="1300" cy="198" r="110" fill="url(#logoGrad)" opacity="0.12"/>
+  <circle cx="1320" cy="198" r="105" fill="url(#logoGrad)" opacity="0.12"/>
 
   <!-- Orbiting dot -->
-  <circle cx="1430" cy="130" r="6" fill="#A78BFA" opacity="0.5" filter="url(#glow)"/>
+  <circle cx="1440" cy="128" r="5" fill="#A78BFA" opacity="0.45"/>
 
   <!-- Stars -->
-  <circle cx="1000" cy="60" r="1.5" fill="white" opacity="0.25"/>
-  <circle cx="1150" cy="340" r="2" fill="white" opacity="0.2"/>
-  <circle cx="900" cy="320" r="1.5" fill="white" opacity="0.25"/>
-  <circle cx="1400" cy="80" r="1" fill="white" opacity="0.3"/>
+  <circle cx="1000" cy="55" r="1.5" fill="white" opacity="0.22"/>
+  <circle cx="1150" cy="345" r="2" fill="white" opacity="0.18"/>
+  <circle cx="880" cy="320" r="1.5" fill="white" opacity="0.22"/>
 
   <!-- Logo mark -->
-  <rect x="60" y="78" width="240" height="240" rx="52" ry="52" fill="url(#logoGrad)" filter="url(#glow)"/>
-  <rect x="73" y="91" width="214" height="214" rx="45" ry="45" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+  <rect x="55" y="78" width="230" height="230" rx="50" ry="50" fill="url(#logoGrad)"/>
+  <rect x="67" y="90" width="206" height="206" rx="44" ry="44" fill="none" stroke="white" stroke-width="1.5" opacity="0.08"/>
 
   <!-- Robot face -->
-  <rect x="105" y="120" width="170" height="130" rx="24" ry="24" fill="none" stroke="white" stroke-width="5" opacity="0.9"/>
-  <circle cx="152" cy="172" r="17" fill="white" opacity="0.95"/>
-  <circle cx="152" cy="172" r="8" fill="#7C3AED"/>
-  <circle cx="228" cy="172" r="17" fill="white" opacity="0.95"/>
-  <circle cx="228" cy="172" r="8" fill="#7C3AED"/>
-  <line x1="190" y1="120" x2="190" y2="88" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
-  <circle cx="190" cy="80" r="8" fill="#A78BFA" filter="url(#glow)"/>
-  <rect x="142" y="218" width="96" height="15" rx="7.5" fill="white" opacity="0.6"/>
+  <rect x="98" y="118" width="164" height="124" rx="22" ry="22" fill="none" stroke="white" stroke-width="4.5" opacity="0.9"/>
+  <circle cx="144" cy="166" r="16" fill="white" opacity="0.95"/>
+  <circle cx="144" cy="166" r="8" fill="#6366F1"/>
+  <circle cx="214" cy="166" r="16" fill="white" opacity="0.95"/>
+  <circle cx="214" cy="166" r="8" fill="#6366F1"/>
+  <line x1="179" y1="118" x2="179" y2="85" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="179" cy="78" r="7" fill="#A78BFA" opacity="0.9"/>
+  <rect x="132" y="204" width="92" height="13" rx="6.5" fill="white" opacity="0.6"/>
 
   <!-- Text -->
-  <text x="340" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="48" fill="white" opacity="0.95">AI Agent Planet</text>
-  <text x="340" y="212" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="22" fill="#A78BFA" opacity="0.8">Daily AI news for agents and the humans who build them</text>
-  <text x="340" y="252" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="400" font-size="16" fill="#9CA3AF" opacity="0.55">t.me/aiagentplanet · No fluff. No hype. Just what matters.</text>
+  <text x="330" y="160" font-family="BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, sans-serif" font-weight="800" font-size="46" fill="white" opacity="0.95">AI Agent Planet</text>
+  <text x="330" y="204" font-family="BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, sans-serif" font-weight="500" font-size="21" fill="#A78BFA" opacity="0.8">Daily AI news for agents and the humans who build them</text>
+  <text x="330" y="242" font-family="BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, sans-serif" font-weight="400" font-size="15" fill="#9CA3AF" opacity="0.5">t.me/aiagentplanet</text>
 
   <!-- Divider -->
-  <line x1="340" y1="230" x2="680" y2="230" stroke="rgba(167,139,250,0.12)" stroke-width="1"/>
+  <line x1="330" y1="224" x2="660" y2="224" stroke="#A78BFA" stroke-width="1" opacity="0.1"/>
 </svg>
