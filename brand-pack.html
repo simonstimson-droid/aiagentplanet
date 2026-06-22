@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent Planet — Brand Pack</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface-alt: #1a1a24;
+    --border: rgba(255,255,255,0.08);
+    --text: #e0e0e0;
+    --text-muted: #9ca3af;
+    --text-dim: #6b7280;
+    --accent: #7c3aed;
+    --accent-light: #a78bfa;
+    --accent-glow: rgba(124,58,237,0.3);
+    --gradient: linear-gradient(135deg, #7c3aed, #6366f1);
+    --gradient-text: linear-gradient(135deg, #a78bfa, #6366f1, #818cf8);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── Cover ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(124,58,237,0.12) 0%, transparent 70%);
+  }
+  .cover .logo-mark {
+    width: 120px; height: 120px;
+    background: var(--gradient);
+    border-radius: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 56px;
+    margin-bottom: 32px;
+    box-shadow: 0 0 60px var(--accent-glow);
+  }
+  .cover h1 {
+    font-size: 56px;
+    font-weight: 800;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .cover .tagline {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+  }
+  .cover .meta {
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── Section ── */
+  .section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 16px;
+  }
+  .section h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  /* ── Logo Variations ── */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .logo-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .logo-card.dark { background: #000; }
+  .logo-card.light { background: #fff; }
+  .logo-card.light .logo-name { color: #111; }
+  .logo-card.light .logo-tagline { color: #666; }
+  .logo-mark-sm {
+    width: 64px; height: 64px;
+    background: var(--gradient);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+  }
+  .logo-mark-outline {
+    width: 64px; height: 64px;
+    border: 2px solid var(--accent);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+    background: transparent;
+  }
+  .logo-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .logo-tagline {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .logo-card-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 4px;
+  }
+
+  /* ── Color Palette ── */
+  .palette {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+  }
+  .swatch {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .swatch-color {
+    height: 80px;
+  }
+  .swatch-info {
+    background: var(--surface);
+    padding: 12px;
+  }
+  .swatch-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .swatch-hex {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-family: 'SF Mono', SFMono-Regular, monospace;
+  }
+
+  /* ── Typography ── */
+  .type-grid {
+    display: grid;
+    gap: 32px;
+  }
+  .type-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+  }
+  .type-spec {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .type-sample h1 { font-size: 42px; font-weight: 800; }
+  .type-sample h2 { font-size: 32px; font-weight: 700; }
+  .type-sample h3 { font-size: 24px; font-weight: 600; }
+  .type-sample .body { font-size: 16px; color: var(--text-muted); }
+  .type-sample .caption { font-size: 13px; color: var(--text-dim); }
+  .type-sample .mono { font-family: 'SF Mono', SFMono-Regular, monospace; font-size: 14px; color: var(--accent-light); }
+
+  /* ── Banners ── */
+  .banner-grid {
+    display: grid;
+    gap: 24px;
+  }
+  .banner {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .banner-x {
+    height: 200px;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1040 50%, #0a0a0f 100%);
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+  }
+  .banner-x .planet {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 35% 35%, #a78bfa, #7c3aed 40%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+  .banner-x .content {
+    position: relative;
+    z-index: 1;
+  }
+  .banner-x .handle {
+    font-size: 14px;
+    color: var(--accent-light);
+    margin-bottom: 8px;
+  }
+  .banner-x .bio {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 400px;
+  }
+  .banner-label {
+    background: var(--surface);
+    padding: 12px 20px;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* ── Social Templates ── */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .social-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+  .social-card .platform {
+    font-size: 11px;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .social-card .preview {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .social-card .preview .highlight {
+    color: var(--accent-light);
+  }
+  .social-card .preview .emoji {
+    font-style: normal;
+  }
+
+  /* ── Voice / Tone ── */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .voice-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .voice-card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .voice-card.do h3 { color: #34d399; }
+  .voice-card.dont h3 { color: #f87171; }
+  .voice-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .voice-card li {
+    font-size: 14px;
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+  }
+  .voice-card li::before {
+    position: absolute;
+    left: 0;
+  }
+  .voice-card.do li::before { content: "✓"; color: #34d399; }
+  .voice-card.dont li::before { content: "✗"; color: #f87171; }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .cover h1 { font-size: 36px; }
+    .voice-grid { grid-template-columns: 1fr; }
+    .type-row { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="logo-mark">🤖</div>
+  <h1>AI Agent Planet</h1>
+  <p class="tagline">Brand Pack — June 2026</p>
+  <span class="meta">Version 1.0</span>
+</div>
+
+<!-- LOGO -->
+<div class="section">
+  <div class="section-label">01 — Logo</div>
+  <h2>Mark & Variations</h2>
+  <div class="logo-grid">
+    <div class="logo-card">
+      <div class="logo-mark-sm">🤖</div>
+      <div class="logo-name">AI Agent Planet</div>
+      <div class="logo-tagline">News for the agentic era</div>
+      <div class="logo-card-label">Primary — Dark</div>
+    </div>
+    <div class="logo-card dark">
+      <div class="logo-mark-sm">🤖</div>
+      <div class="logo-name">AI Agent Planet</div>
+      <div class="logo-tagline">News for the agentic era</div>
+      <div class="logo-card-label">On Black</div>
+    </div>
+    <div class="logo-card light">
+      <div class="logo-mark-sm">🤖</div>
+      <div class="logo-name">AI Agent Planet</div>
+      <div class="logo-tagline">News for the agentic era</div>
+      <div class="logo-card-label">On White</div>
+    </div>
+    <div class="logo-card">
+      <div class="logo-mark-outline">🤖</div>
+      <div class="logo-name">AI Agent Planet</div>
+      <div class="logo-tagline">News for the agentic era</div>
+      <div class="logo-card-label">Outline Variant</div>
+    </div>
+  </div>
+</div>
+
+<!-- COLORS -->
+<div class="section">
+  <div class="section-label">02 — Color Palette</div>
+  <h2>Colours</h2>
+  <div class="palette">
+    <div class="swatch">
+      <div class="swatch-color" style="background: #7c3aed;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Primary</div>
+        <div class="swatch-hex">#7C3AED</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #6366f1;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Secondary</div>
+        <div class="swatch-hex">#6366F1</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #a78bfa;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Accent Light</div>
+        <div class="swatch-hex">#A78BFA</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #0a0a0f;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Background</div>
+        <div class="swatch-hex">#0A0A0F</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #111118;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Surface</div>
+        <div class="swatch-hex">#111118</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #e0e0e0;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Text</div>
+        <div class="swatch-hex">#E0E0E0</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #9ca3af;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Muted</div>
+        <div class="swatch-hex">#9CA3AF</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #6b7280;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Dim</div>
+        <div class="swatch-hex">#6B7280</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="section">
+  <div class="section-label">03 — Typography</div>
+  <h2>Type System</h2>
+  <div class="type-grid">
+    <div class="type-row">
+      <div class="type-spec">H1 · 42px · 800</div>
+      <div class="type-sample"><h1>AI Agent Planet</h1></div>
+    </div>
+    <div class="type-row">
+      <div class="type-spec">H2 · 32px · 700</div>
+      <div class="type-sample"><h2>Daily AI News</h2></div>
+    </div>
+    <div class="type-row">
+      <div class="type-spec">H3 · 24px · 600</div>
+      <div class="type-sample"><h3>Tool of the Day</h3></div>
+    </div>
+    <div class="type-row">
+      <div class="type-spec">Body · 16px · 400</div>
+      <div class="type-sample"><div class="body">Daily AI news curated for agents and the humans who build them. No fluff. No hype. Just what matters.</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-spec">Caption · 13px</div>
+      <div class="type-sample"><div class="caption">Curated by AI Agent Planet — news for the agentic era</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-spec">Mono · 14px</div>
+      <div class="type-sample"><div class="mono">t.me/aiagentplanet</div></div>
+    </div>
+  </div>
+  <p style="margin-top: 24px; color: var(--text-dim); font-size: 14px;">
+    Font stack: <code style="color: var(--accent-light); font-family: 'SF Mono', monospace;">-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif</code>
+  </p>
+</div>
+
+<!-- BANNERS -->
+<div class="section">
+  <div class="section-label">04 — Banners</div>
+  <h2>Social Media Banners</h2>
+  <div class="banner-grid">
+    <div class="banner">
+      <div class="banner-x">
+        <div class="planet"></div>
+        <div class="content">
+          <div class="handle">@aiagentplanet</div>
+          <div class="bio">🤖 Daily AI news for agents and the humans who build them. No fluff. No hype. Just what matters.</div>
+        </div>
+      </div>
+      <div class="banner-label">X / Twitter Header — 1500×500</div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL TEMPLATES -->
+<div class="section">
+  <div class="section-label">05 — Social Templates</div>
+  <h2>Post Templates</h2>
+  <div class="social-grid">
+    <div class="social-card">
+      <div class="platform">X / Twitter — Daily</div>
+      <div class="preview">
+        <span class="emoji">🤖</span> <span class="highlight">AI Agent Planet</span> — Monday 23 June<br><br>
+        <span class="emoji">🔥</span> [Top story headline]<br><br>
+        <span class="emoji">📰</span> • [Headline 1]<br>
+        • [Headline 2]<br>
+        • [Headline 3]<br><br>
+        <span class="emoji">🔧</span> Tool: [Name] — [one line]<br>
+        🔗 [link]<br><br>
+        📱 Full briefing: t.me/aiagentplanet
+      </div>
+    </div>
+    <div class="social-card">
+      <div class="platform">X / Twitter — Thread</div>
+      <div class="preview">
+        <span class="emoji">🧵</span> <span class="highlight">AI Agent Planet</span> — Weekly Roundup<br><br>
+        1/ The biggest AI story this week: [story]<br><br>
+        2/ [Headline 2]<br><br>
+        3/ [Headline 3]<br><br>
+        4/ Tool worth trying: [tool]<br><br>
+        5/ What's coming next week...<br><br>
+        📱 Get daily briefings → t.me/aiagentplanet
+      </div>
+    </div>
+    <div class="social-card">
+      <div class="platform">Telegram — Daily</div>
+      <div class="preview">
+        <span class="emoji">🤖</span> <span class="highlight">AI Agent Planet</span> — Monday 23 June<br><br>
+        <span class="emoji">🔥</span> <b>Top Story</b><br>
+        [2-3 sentences]<br><br>
+        <span class="emoji">📰</span> <b>Today's Headlines</b><br>
+        1. [Headline] — [summary]<br>
+        2. [Headline] — [summary]<br>
+        3. [Headline] — [summary]<br><br>
+        <span class="emoji">🔧</span> <b>Tool of the Day</b><br>
+        [Tool] — [description]<br><br>
+        💡 Enjoyed this? Forward to a friend!
+      </div>
+    </div>
+    <div class="social-card">
+      <div class="platform">LinkedIn — Weekly</div>
+      <div class="preview">
+        <span class="emoji">📊</span> <b>AI Agent Planet: Weekly Roundup</b><br><br>
+        The 3 biggest AI stories this week:<br><br>
+        1️⃣ [Story 1]<br><br>
+        2️⃣ [Story 2]<br><br>
+        3️⃣ [Story 3]<br><br>
+        My take: [hot take]<br><br>
+        Get daily AI news → t.me/aiagentplanet<br><br>
+        #AI #ArtificialIntelligence #AINews
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VOICE & TONE -->
+<div class="section">
+  <div class="section-label">06 — Voice & Tone</div>
+  <h2>Brand Voice</h2>
+  <div class="voice-grid">
+    <div class="voice-card do">
+      <h3>Do</h3>
+      <ul>
+        <li>Conversational — like a smart friend who works in AI</li>
+        <li>Explain WHY things matter, not just WHAT happened</li>
+        <li>Admit when it's a quiet day — don't pad</li>
+        <li>Use plain English, define jargon in brackets</li>
+        <li>Punchy headlines, tight summaries</li>
+        <li>Authoritative but not arrogant</li>
+      </ul>
+    </div>
+    <div class="voice-card dont">
+      <h3>Don't</h3>
+      <ul>
+        <li>Hype or use superlatives ("revolutionary", "game-changing")</li>
+        <li>Write like a press release</li>
+        <li>Explain things like you're lecturing</li>
+        <li>Use unexplained acronyms or jargon</li>
+        <li>Pad slow days with fluff</li>
+        <li>Be sycophantic about big companies</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND ASSETS CHECKLIST -->
+<div class="section">
+  <div class="section-label">07 — Asset Checklist</div>
+  <h2>What You Need to Create</h2>
+  <div class="voice-card" style="border-left: 3px solid var(--accent);">
+    <ul style="gap: 12px;">
+      <li style="padding-left: 0;"><b>Logo / Avatar</b> — The 🤖 emoji on gradient background works as a starting point. For a proper logo, use the mark style shown above (rounded square, gradient bg, robot emoji). Size: 400×400px for profile pics.</li>
+      <li style="padding-left: 0;"><b>X Header Banner</b> — 1500×500px. Use the banner design above as reference. Dark background with purple glow "planet" accent.</li>
+      <li style="padding-left: 0;"><b>Telegram Channel Avatar</b> — 512×512px. Same logo mark, works at small sizes.</li>
+      <li style="padding-left: 0;"><b>LinkedIn Banner</b> — 1584×396px. Similar to X banner but wider format.</li>
+      <li style="padding-left: 0;"><b>Email Header</b> — 600×200px. For Buttondown newsletter header.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  <p>🤖 AI Agent Planet — Brand Pack v1.0 — June 2026</p>
+  <p style="margin-top: 8px;">All colours, type, and layouts match the existing landing page</p>
+</div>
+
+</body>
+</html>
