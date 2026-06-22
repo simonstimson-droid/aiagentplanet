@@ -159,10 +159,62 @@
   <div class="newsletter" id="newsletter">
     <h2>📬 Get It In Your Inbox</h2>
     <p>Same great content, delivered by email. No spam, unsubscribe anytime.</p>
-    <form class="email-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thanks! Email signup coming soon. Join the Telegram channel for now — link above.');">
-      <input type="email" placeholder="your@email.com" required>
-      <button type="submit">Subscribe</button>
+    <form class="email-form" id="subscribe-form" onsubmit="return handleSubscribe(event)">
+      <input type="email" id="email-input" placeholder="your@email.com" required>
+      <button type="submit" id="submit-btn">Subscribe</button>
     </form>
+    <p id="form-message" style="margin-top: 16px; font-size: 14px; display: none;"></p>
+    <script>
+    async function handleSubscribe(e) {
+      e.preventDefault();
+      var input = document.getElementById('email-input');
+      var btn = document.getElementById('submit-btn');
+      var msg = document.getElementById('form-message');
+      var email = input.value.trim();
+
+      if (!email) return false;
+
+      btn.textContent = 'Subscribing…';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+
+      try {
+        var res = await fetch('https://api.buttondown.email/v1/subscribers', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Token 241068d8-aebd-474f-872e-93f9f263d395',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email: email, metadata: { source: 'landing-page' } })
+        });
+
+        if (res.ok || res.status === 201) {
+          msg.textContent = '✅ You\'re in! Check your inbox to confirm.';
+          msg.style.color = '#34d399';
+          msg.style.display = 'block';
+          input.value = '';
+        } else if (res.status === 409) {
+          msg.textContent = 'You\'re already subscribed — thanks!';
+          msg.style.color = '#A78BFA';
+          msg.style.display = 'block';
+        } else {
+          var err = await res.json();
+          msg.textContent = 'Something went wrong. Try again or join us on Telegram → t.me/aiagentplanet';
+          msg.style.color = '#f87171';
+          msg.style.display = 'block';
+        }
+      } catch (err) {
+        msg.textContent = 'Connection issue. Try again or join us on Telegram → t.me/aiagentplanet';
+        msg.style.color = '#f87171';
+        msg.style.display = 'block';
+      }
+
+      btn.textContent = 'Subscribe';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      return false;
+    }
+    </script>
   </div>
 
   <div class="social">
